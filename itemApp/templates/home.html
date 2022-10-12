@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+{% if ticker %}
+    {{ ticker }}
+{% endif %}
+
+
+
+
+{% if api %}
+    {% if api == "Error..." %}
+        There was an error...Please try again later.
+    {% else %}<br/>
+        <h1>{{ api.companyName }}</h1>
+        Price: ${{ api.latestPrice }}<br/>
+        Market Cap: ${{ api.marketCap }}<br/>
+        Previous Volume: {{ api.previousVolume }}<br/>
+        Latest Volume: {{ api.latestVolume }}<br/>
+        Previous Close: {{ api.previousClose }}<br/>
+        Change Percent: {{ api.changePercent }}<br/>
+        Primary Exchange: {{ api.primaryExchange }}<br/>
+        YTD Change: {{ api.ytdChange }}<br/>
+        Is US Market Open: {{ api.isUSMarketOpen }}<br/>
+        week52 High: {{ api.week52High }}<br/>
+        week52 Low: {{ api.week52Low }}<br/>
+        Stock Symbol: {{ api.symbol }}<br/>
+
+
+       
+    {% endif %}
+{% endif %} 
+    
+{% endblock %}   
+
